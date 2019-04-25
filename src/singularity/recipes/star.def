@@ -1,0 +1,10 @@
+Bootstrap: localimage
+From: src/singularity/images/base.simg
+
+%post
+    URL=https://github.com/alexdobin/STAR/archive/
+    TAR=2.7.0f.tar.gz
+    
+    wget $URL/$TAR -P /opt && \
+    tar -xzvf /opt/$TAR -C /opt && \
+    ln -s /opt/STAR-2.7.0f/bin/Linux_x86_64_static/STAR /usr/local/bin/star

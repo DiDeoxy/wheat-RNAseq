@@ -1,0 +1,12 @@
+Bootstrap: docker
+From: alpine:3.9.3
+
+%labels
+    Maintainer: Max Hargreaves
+    Maintainer_email: whargrea@uoguelph.ca
+    Version 1
+    License: MIT
+
+%post
+    apk update && \
+    apk add --no-cache bash

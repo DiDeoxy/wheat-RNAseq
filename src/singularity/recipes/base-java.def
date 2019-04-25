@@ -1,0 +1,6 @@
+Bootstrap: localimage
+From: src/singularity/images/base.simg
+
+%post
+    apk add --no-cache \
+        openjdk8-jre

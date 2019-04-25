@@ -1,0 +1,16 @@
+Bootstrap: localimage
+From: src/singularity/images/base-make.simg
+Stage: one
+
+%post
+    wget -O /opt/get-pip.py https://bootstrap.pypa.io/get-pip.py && \
+    python /opt/get-pip.py && \
+    rm /opt/get-pip.py && \
+    pip install git+https://github.com/ewels/MultiQC.git
+
+Bootsrap: localimage
+From: src/singularity/images/fastqc.simg
+Stage: two
+
+%files from one
+    /usr/bin/multiqc /usr/bin/multiqc

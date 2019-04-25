@@ -1,0 +1,13 @@
+Bootstrap: localimage
+From: src/singularity/images/base-java.simg
+
+%post
+    URL=http://www.bioinformatics.babraham.ac.uk/projects/fastqc
+    ZIP=fastqc_v0.11.8.zip
+
+    apk --no-cache add perl ttf-dejavu && \
+    wget $URL/$ZIP -P /opt && \
+    unzip /opt/$ZIP -d /opt && \
+    rm /opt/$ZIP && \
+    chmod 755 /opt/FastQC/fastqc && \
+    ln -s /opt/FastQC/fastqc /usr/local/bin/fastqc
