@@ -1,5 +1,5 @@
 Bootstrap: localimage
-From: src/singularity/images/base-java.simg
+From: src/singularity/images/base-java.sif
 
 %post
     URL=http://www.bioinformatics.babraham.ac.uk/projects/fastqc

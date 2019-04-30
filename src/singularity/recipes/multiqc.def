@@ -1,6 +1,6 @@
 Bootstrap: localimage
-From: src/singularity/images/base-make.simg
-Stage: one
+From: src/singularity/images/base-make.sif
+Stage: build
 
 %post
     wget -O /opt/get-pip.py https://bootstrap.pypa.io/get-pip.py && \
@@ -8,9 +8,13 @@ Stage: one
     rm /opt/get-pip.py && \
     pip install git+https://github.com/ewels/MultiQC.git
 
-Bootsrap: localimage
-From: src/singularity/images/fastqc.simg
-Stage: two
+Bootstrap: localimage
+From: src/singularity/images/base.sif
+Stage: run
 
-%files from one
+%post
+    apk --no-cache add python
+
+%files from build
+    /usr/lib/python2.7/site-packages /usr/lib/python2.7/site-packages
     /usr/bin/multiqc /usr/bin/multiqc

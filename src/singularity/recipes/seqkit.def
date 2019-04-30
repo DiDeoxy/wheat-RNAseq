@@ -1,0 +1,11 @@
+Bootstrap: localimage
+From: src/singularity/images/base.sif
+
+%post
+    URL=https://github.com/shenwei356/seqkit/releases/download/v0.10.1
+    TAR=seqkit_linux_amd64.tar.gz
+    
+    wget $URL/$TAR -P /opt && \
+    tar -xzvf /opt/$TAR -C /opt && \
+    ln -s /opt/seqkit /usr/local/bin && \
+    rm /opt/$TAR

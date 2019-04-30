@@ -1,5 +1,5 @@
 Bootstrap: localimage
-From: src/singularity/images/base.simg
+From: src/singularity/images/base.sif
 
 %post
     URL=https://github.com/alexdobin/STAR/archive/

@@ -1,0 +1,13 @@
+Bootstrap: localimage
+From: src/singularity/images/base-java.sif
+
+%post
+    URL=http://www.usadellab.org/cms/uploads/supplementary/Trimmomatic
+    ZIP=Trimmomatic-0.39.zip
+
+    wget $URL/$ZIP -P /opt && \
+    unzip /opt/$ZIP -d /opt && \
+    rm /opt/$ZIP
+
+%environment
+    export TRIM=/opt/Trimmomatic-0.39/trimmomatic-0.39.jar
